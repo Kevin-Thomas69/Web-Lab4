@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Profiles</title>
+</head>
+
+<body>
+    <h1>User Profiles</h1>
+    <div id="userList"></div>
+
+    <script>
+        async function fetchUserProfiles() {
+            try {
+                const response = await fetch('userProfiles.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                const data = await response.json();
+                let htmlContent = '';
+                data.userProfiles.forEach(function (user) {
+                    var name = user.firstName + " " + user.lastName;
+                    var formattedDate = new Date(user.dateOfBirth).toLocaleDateString();
+                    var notifications = user.preferences.notifications ? 'Enabled' : 'Disabled';
+                    var subscription = user.preferences.subscription ? 'Yes' : 'No';
+
+                    htmlContent += "<p>Name: " + name + "</p>";
+                    htmlContent += "<p>Email: " + user.email + "</p>";
+                    htmlContent += "<p>Date of Birth: " + formattedDate + "</p>";
+                    htmlContent += "<p>Preferences: " +
+                        "Theme: " + user.preferences.theme + ", " +
+                        "Language: " + user.preferences.language + ", " +
+                        "Notifications: " + notifications + ", " +
+                        "Subscription: " + subscription +
+                        "</p><hr>";
+                });
+                document.getElementById("userList").innerHTML = htmlContent;
+            } catch (error) {
+                console.error(`Could not fetch user profiles: ${error}`);
+                document.getElementById("userList").innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        fetchUserProfiles();
+    </script>
+</body>
+
+</html>
