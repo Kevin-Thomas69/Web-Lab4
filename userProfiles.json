@@ -1,0 +1,40 @@
+{
+    "userProfiles": [
+      {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@123.com",
+        "dateOfBirth": "2000-05-15",
+        "preferences": {
+          "theme": "dark",
+          "language": "English",
+          "notifications": true,
+          "subscription": true
+        }
+      },
+      {
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "janesmith@456.com",
+        "dateOfBirth": "2004-08-23",
+        "preferences": {
+          "theme": "light",
+          "language": "Spanish",
+          "notifications": false,
+          "subscription": false
+        }
+      },
+      {
+        "firstName": "Mike",
+        "lastName": "Johnson",
+        "email": "mikejohnson@789.com",
+        "dateOfBirth": "1998-01-01",
+        "preferences": {
+          "theme": "dark",
+          "language": "French",
+          "notifications": true,
+          "subscription": true
+        }
+      }
+    ]
+  }
